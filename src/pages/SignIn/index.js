@@ -1,13 +1,21 @@
 import React from 'react';
+import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom';
 import { useForm } from "react-hook-form";
+// import { useHistory } from "react-router-dom";
+
+import { signInRequest } from '../../store/modules/auth/actions';
 
 export default function SignUp() {
 
+  const dispatch = useDispatch();
   const { register, handleSubmit, errors } = useForm();
+  // let history = useHistory();
 
-  function login(data){
-    console.log('login: ', data);
+  function login({email,password}){
+    console.log('login: ', email,password);
+    dispatch(signInRequest(email,password));
+    // history.push('/dashboard')
   }
 
   return (
