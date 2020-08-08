@@ -1,11 +1,16 @@
 import React from 'react';
 
-import { Wrapper } from './styles';
+import { Wrapper, Content } from './styles';
+
+import logo from '../../../assets/image_login.jpg';
 
 export default function AuthLayout({children}){
   return (
     <Wrapper>
-      {children}
+      <Content>
+      <img src={logo} />
+        {children}
+      </Content>
     </Wrapper>
   );
 }
